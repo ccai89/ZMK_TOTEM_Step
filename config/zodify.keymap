@@ -12,6 +12,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Zodify";
             bindings = <
 &kp ESC    &kp Q  &kp W  &kp E     &kp R     &kp T                                                 &kp Y  &kp U     &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D     &kp F     &kp G     &kp MINUS  &kp C_MUTE  &kp F24   &kp EQUAL  &kp H  &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
@@ -22,6 +23,7 @@
         };
 
         numbers {
+            display-name = "Number";
             bindings = <
 &studio_unlock  &trans  &trans  &trans        &trans        &trans                                           &trans  &trans  &trans  &trans  &trans  &trans
 &kp TAB         &kp N1  &kp N2  &kp N3        &kp N4        &kp N5  &trans      &trans       &trans  &trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
@@ -32,6 +34,7 @@
         };
 
         numpad {
+            display-name = "NumPad";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                           &trans  &trans   &kp N7     &kp N8  &kp N9  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans       &trans      &trans  &trans   &kp N4     &kp N5  &kp N6  &trans
@@ -42,6 +45,7 @@
         };
 
         symbol {
+            display-name = "Symbol";
             bindings = <
 &trans  &kp TILDE         &kp PIPE           &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp DOUBLE_QUOTES                                  &trans     &trans    &trans     &trans                &trans                 &trans
 &trans  &kp EXCL          &kp AT             &kp HASH        &kp DLLR         &kp PERCENT        &trans  &trans  &trans  &trans  &kp CARET  &kp AMPS  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
@@ -52,6 +56,7 @@
         };
 
         function {
+            display-name = "Function";
             bindings = <
 &trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                                   &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11
 &trans  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &trans  &trans  &trans  &trans  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp F12
