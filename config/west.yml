@@ -8,7 +8,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 147c340c6e8d377304acfdd64dc86cf83ebdfef2
+      revision: main
       import: app/west.yml
     # support nice_oled and nice_epaper
     - name: zmk-nice-oled
