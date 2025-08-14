@@ -22,7 +22,7 @@ manifest:
       remote: janpfischer
       revision: main
     - name: zmk-driver-azoteq-iqs5xx
-      remote: AYM1607z
+      remote: AYM1607
       revision: main
   self:
     path: config
