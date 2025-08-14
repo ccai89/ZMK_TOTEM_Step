@@ -39,6 +39,12 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(1,6) RC(2,6)   RC(2,7)  RC(1,
             ;
 
     };
+
+    tps43_input: tps43_input {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&tps43>;
+    };
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -89,11 +95,5 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(1,6) RC(2,6)   RC(2,7)  RC(1,
             compatible = "zmk,input-split";
             reg = <0>;
         };
-    };
-
-    tps43_input: tps43_input {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-        device = <&tps43>;
     };
 };
