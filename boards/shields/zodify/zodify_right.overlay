@@ -46,6 +46,9 @@
         stationary-threshold = <5>;
 
         switch-xy;
+        
+        reset-gpios = <&pro_micro 21 GPIO_ACTIVE_LOW>;
+        rdy-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>;
     };
 };
 
