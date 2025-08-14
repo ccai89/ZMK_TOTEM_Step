@@ -7,6 +7,8 @@ manifest:
       url-base: https://github.com/mctechnology17
     - name: janpfischer
       url-base: https://github.com/janpfischer
+    - name: AYM1607
+      url-base: https://github.com/AYM1607
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -18,6 +20,9 @@ manifest:
       revision: main
     - name: zmk-dongle-screen
       remote: janpfischer
+      revision: main
+    - name: zmk-driver-azoteq-iqs5xx
+      remote: AYM1607z
       revision: main
   self:
     path: config
