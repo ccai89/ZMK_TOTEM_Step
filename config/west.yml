@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
     - name: janpfischer
       url-base: https://github.com/janpfischer
     - name: AYM1607
@@ -11,11 +13,14 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: main
     - name: zmk-dongle-screen
       remote: janpfischer
       revision: main
     - name: zmk-driver-azoteq-iqs5xx
-      remote: AYM1607
+      remote: AYM1607z
       revision: main
   self:
     path: config

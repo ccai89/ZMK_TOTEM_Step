@@ -1,7 +1,7 @@
 #include "totem_step.dtsi"
 
 &default_transform {
-    col-offset = <7>;
+    col-offset = <5>;
 };
 
 // Label of the kscan node in the dtsi
@@ -12,8 +12,6 @@
         , <&gpio1 1 GPIO_ACTIVE_HIGH>
         , <&pro_micro 10 GPIO_ACTIVE_HIGH>
         , <&pro_micro 16 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
         ;
 };
 
