@@ -1,4 +1,4 @@
-#include "zodify.dtsi"
+#include "totem_step.dtsi"
 
 &default_transform {
     col-offset = <7>;

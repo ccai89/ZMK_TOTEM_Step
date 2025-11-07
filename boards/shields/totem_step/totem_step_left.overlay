@@ -1,4 +1,4 @@
-#include "zodify.dtsi" // The shared dtsi file is included in the overlay
+#include "totem_step.dtsi" // The shared dtsi file is included in the overlay
 
 // Label of the kscan node in the dtsi
 &kscan0 {

@@ -1,18 +1,24 @@
-#include <dt-bindings/zmk/matrix_transform.h>
-#include "zodify-layouts.dtsi"
+#include <dt-bindings/zmk/matrix_transform.h> // Put this with the other includes at the top of your dtsi
+#include "totem_step-layouts.dtsi"
 
-&zodify_physical_layout {
+&totem_step_physical_layout {
     transform = <&default_transform>;
 };
 
 / {
     chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &totem_step_physical_layout;
         zephyr,display = &oled;
-        zmk,kscan = &mock_kscan;
-        zmk,physical-layout = &zodify_physical_layout;
     };
 
-        default_transform: keymap_transform0 {
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+        wakeup-source;
+
+    default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
         rows = <4>;
@@ -25,11 +31,13 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(1,6) RC(2,6)   RC(2,7)  RC(1,
        >;
     };
 
-        mock_kscan: mock_kscan_0 {
-        compatible = "zmk,kscan-mock";
-        columns = <0>;
-        rows = <0>;
-        events = <0>;
+        row-gpios
+            = <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
     };
 
     tps43_input: tps43_input {
@@ -37,32 +45,9 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(1,6) RC(2,6)   RC(2,7)  RC(1,
         status = "disabled";
         device = <&tps43>;
     };
-
-    left_encoder: encoder_left {
-    compatible = "alps,ec11";
-    a-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    steps = <80>;
-    status = "disabled";
-    };
-
-    right_encoder: encoder_right {
-    compatible = "alps,ec11";
-    a-gpios = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    steps = <80>;
-    status = "disabled";
-
-    };
-
-    sensors {
-    	compatible = "zmk,keymap-sensors";
-    	sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
-    };
 };
 
-&xiao_i2c {
+&pro_micro_i2c {
     status = "okay";
     tps43: iqs5xx@74 {
         status = "okay";
@@ -87,8 +72,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(1,6) RC(2,6)   RC(2,7)  RC(1,
 
         switch-xy;
 
-        reset-gpios = <&xiao_d 1 GPIO_ACTIVE_LOW>;
-        rdy-gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+        reset-gpios = <&pro_micro 20 GPIO_ACTIVE_LOW>;
+        rdy-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>;
     };
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
