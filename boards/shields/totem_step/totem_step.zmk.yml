@@ -1,0 +1,11 @@
+file_format: "1"
+id: totem_step
+name: Totem_Step
+type: shield
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - totem_step_left
+  - totem_step_right
+  - totem_step_dongle
